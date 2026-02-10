@@ -2,16 +2,15 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import numpy as np
 import pickle
-import os
 from pathlib import Path
 
 app = FastAPI(title="Linear Regression Model API")
 
-MODEL_PATH = Path(os.getenv("MODEL_PATH", "models/linmodel.pkl"))
+MODEL_PATH = Path("models/linmodel.pkl")
 
 model = None
 if MODEL_PATH.exists():
-    with MODEL_PATH.open("rb") as f:
+    with open(MODEL_PATH, "rb") as f:
         model = pickle.load(f)
 
 
