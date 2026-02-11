@@ -1,11 +1,9 @@
 __pycache__/
-*.py[cod]
+*.pyc
 .venv/
 venv/
+myvenv/
 .env
 .pytest_cache/
-.coverage
 .vscode/
 .idea/
-.DS_Store
-render.yaml

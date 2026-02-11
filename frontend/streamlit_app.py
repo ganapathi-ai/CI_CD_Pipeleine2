@@ -19,13 +19,13 @@ if st.button("Predict Price"):
     payload = {"area": area, "bedrooms": bedrooms}
 
     try:
-        response = requests.post(API_URL, json=payload, timeout=5)
+        response = requests.post(API_URL, json=payload, timeout=10)
 
         if response.status_code == 200:
             price = response.json()["predicted_price"]
             st.success(f"Predicted Price: ₹ {price:,.2f}")
         else:
-            st.error("Backend error")
+            st.error(f"Backend error: {response.text}")
 
     except Exception as e:
         st.error(f"Connection error: {e}")
