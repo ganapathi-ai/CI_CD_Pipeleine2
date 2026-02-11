@@ -3,10 +3,19 @@ from pydantic import BaseModel
 import numpy as np
 import pickle
 from pathlib import Path
-
+from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI(title="House Price API")
 
 MODEL_PATH = Path(__file__).parent / "models" / "linmodel.pkl"
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://ci-cd-pipeleine2-1-frontend.onrender.com"],  # Or ["https://git-cicd-1-ngtw.onrender.com"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 model = None
 if MODEL_PATH.exists():
