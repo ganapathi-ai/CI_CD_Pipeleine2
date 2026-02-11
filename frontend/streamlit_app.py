@@ -4,7 +4,7 @@ import os
 
 API_URL = os.getenv(
     "API_URL",
-    "https://sample-cicd-ge27.onrender.com/predict"
+    "https://ci-cd-pipeleine2.onrender.com/predict"
 )
 
 st.set_page_config(page_title="House Price Prediction", layout="centered")
